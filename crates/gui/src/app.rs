@@ -1514,7 +1514,7 @@ impl ScopeApp {
                     // seconds deciding whether it can hear an 1800 Hz carrier
                     // that is barely above its own noise floor. One call went
                     // out at 20 dB down and this sat there in grey.
-                    let wrong = over > 6.0 || over < -10.0;
+                    let wrong = !(-10.0..=6.0).contains(&over);
                     ui.label(
                         RichText::new(format!("{over:+5.1} dB vs far end"))
                             .monospace()
